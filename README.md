@@ -6,6 +6,7 @@ Spotted Zebra Backend Take Home Assignment
 
 ## Prerequisits
 npm
+
 nodejs e.g. version 16.13.0 or higher
 
 ## Installation
