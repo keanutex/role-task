@@ -1,9 +1,5 @@
 ## Spotted Zebra Backend Take Home Assignment
 
-## Description
-
-Spotted Zebra Backend Take Home Assignment
-
 ## Prerequisits
 npm
 
