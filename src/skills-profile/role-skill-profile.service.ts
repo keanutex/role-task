@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { MatchToRoleDto } from 'src/common/dtos/match-to-role.dto';
 import { CreateRoleSkillProfileDto } from '../common/dtos/create-role-skill-profile.dto';
 import { RoleSkillProfileModel } from '../common/models/role-skill-profile.model';
 
 @Injectable()
 export class RoleSkillProfileService {
-  private readonly roleSkillProfiles: RoleSkillProfileModel[] = [ 
+  private readonly roleSkillProfiles: RoleSkillProfileModel[] = [
     {
       id: 1000,
       roleName: 'Product Manager',
@@ -17,8 +18,8 @@ export class RoleSkillProfileService {
         },
         {
           id: 3,
-        }
-      ]
+        },
+      ],
     },
     {
       id: 1001,
@@ -32,9 +33,9 @@ export class RoleSkillProfileService {
         },
         {
           id: 4,
-        }
-      ]
-    },    
+        },
+      ],
+    },
     {
       id: 1002,
       roleName: 'Head of Customer Success',
@@ -47,11 +48,10 @@ export class RoleSkillProfileService {
         },
         {
           id: 5,
-        }
-      ]
-    }, 
+        },
+      ],
+    },
   ];
-
 
   create(roleSkillsProfile: CreateRoleSkillProfileDto) {
     this.roleSkillProfiles.push(roleSkillsProfile);
@@ -59,5 +59,12 @@ export class RoleSkillProfileService {
 
   findAll(): RoleSkillProfileModel[] {
     return this.roleSkillProfiles;
+  }
+
+  find(dto: MatchToRoleDto): RoleSkillProfileModel | undefined {
+    const roles = this.roleSkillProfiles;
+    const role = roles.find((role) => role.id === Number.parseInt(dto.roleId));
+    console.log(role);
+    return role;
   }
 }

@@ -15,7 +15,8 @@
     "baseUrl": "./",
     "incremental": true,
     "esModuleInterop": true,
-    "lib": ["es2019"]
+    "lib": ["es2019"],
+    "strictNullChecks": true
     //"skipLibCheck": true
     // 09/11 "skipLibCheck": true added to enable apollo to compile (issue with FileUploadDataSource)
   }
