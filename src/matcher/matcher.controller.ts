@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { MatchToRoleDto } from '../common/dtos/match-to-role.dto';
 import { MatchToUserDto } from '../common/dtos/match-to-user.dto';
 import { MatchModel } from '../common/models/match.model';
@@ -15,7 +15,6 @@ export class MatcherController {
     return this.matcherService.matchAll();
   }
 
-
   // E.g. http://localhost:3000/Matcher/MatchAllToRole/10
   @Get('MatchAllToRole/:roleId')
   public async matchAllToRole(
@@ -26,14 +25,13 @@ export class MatcherController {
     return this.matcherService.matchAllToRole(dto);
   }
 
-    // E.g. http://localhost:3000/Matcher/MatchAllToUser/10
-    @Get('MatchAllToUser/:roleId')
-    public async matchAllToUser(
-      @Param() dto: MatchToUserDto,
-    ): Promise<MatchModel[]> {
-      const { userId } = dto;
-      console.log(`Matching the user ${userId} to all roles`);
-      return this.matcherService.matchAllToUser(dto);
-
-    }
+  // E.g. http://localhost:3000/Matcher/MatchAllToUser/10
+  @Get('MatchAllToUser/:userId')
+  public async matchAllToUser(
+    @Param() dto: MatchToUserDto,
+  ): Promise<MatchModel[]> {
+    const { userId } = dto;
+    console.log(`Matching the user ${userId} to all roles`);
+    return this.matcherService.matchAllToUser(dto);
+  }
 }
